@@ -1,25 +1,28 @@
 package com.example.demo.truck;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Truck {
     @Id
-    private int id;
-    private String nom;
-    private String descriptif;
-
-    public Truck(int id, String nom, String descriptif){
-        this.id = id;
-        this.nom = nom;
-        this.descriptif = descriptif;
-    }
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_truck;
+    private String name;
+    private String description;
+    private int id_creneau;
+    private int id_position;
 }
