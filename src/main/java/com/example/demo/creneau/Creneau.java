@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.LocalDate;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Getter
@@ -26,5 +26,5 @@ public class Creneau {
     private int id_creneau;
     private String name;
     private String description;
-    private Date date;
+    private LocalDate date;
 }

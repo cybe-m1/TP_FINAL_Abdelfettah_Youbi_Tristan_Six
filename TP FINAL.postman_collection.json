@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "db5b872e-3fe8-4e60-b297-d2bdb963bf2c",
+		"name": "TP FINAL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Creneau",
+			"item": [
+				{
+					"name": "GetCreneauAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/creneaux",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"creneaux"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneCreneau",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/creneaux/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"creneaux",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneByDate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2015-12-17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/creneaux/search",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"creneaux",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_creneau\": 1,\r\n    \"name\": \"NouveauCreneau\",\r\n    \"description\": \"test rezqqsfdgsdcsfd\",\r\n    \"date\": \"2015-06-16\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/creneaux",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"creneaux"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delCreneau",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/creneaux/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"creneaux",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCreneau",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"NouveauCreneau\",\r\n    \"description\": \"test rezqqsfdgsdcsfd\",\r\n    \"date\": \"2015-06-26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/creneaux",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"creneaux"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Position",
+			"item": [
+				{
+					"name": "GetPositionAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/positions",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"positions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOnePosition",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/positions/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"positions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/positions/search/sition",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"positions",
+								"search",
+								"sition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPosition",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"demoPosition\",\r\n    \"description\": \"test rezqqsfdgsdcsfd\",\r\n    \"longitude\": 67.561535614,\r\n    \"latitude\": 145.6513615\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/positions",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"positions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putPosition",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_position\": 1,\r\n    \"name\": \"modifPosition\",\r\n    \"description\": \"test rezqqsfdgsdcsfd\",\r\n    \"coordonneeGPS\": \"Nouvelle destination choisie\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/positions",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"positions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delPosition",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/positions/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"positions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Truck",
+			"item": [
+				{
+					"name": "GetAllTruck",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/trucks",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"trucks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneTruck",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/trucks/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"trucks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modifyPositionTruck",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/trucks/1/position/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"trucks",
+								"1",
+								"position",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modifyCreneauTruck",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/trucks/1/creneau/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"trucks",
+								"1",
+								"creneau",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modifyTruck",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_truck\": 3,\r\n    \"name\": \"demoTruck\",\r\n    \"description\": \"test rezqqsfdgsdcsfd\",\r\n    \"id_creneau\": 1,\r\n    \"id_position\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/trucks",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"trucks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTruck",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"demoTruck\",\r\n    \"description\": \"test rezqqsfdgsdcsfd\",\r\n    \"id_creneau\": 1,\r\n    \"id_position\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/trucks",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"trucks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTruck",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/trucks/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"trucks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

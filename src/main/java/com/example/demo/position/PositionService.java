@@ -25,17 +25,29 @@ public class PositionService {
         return positionRepository.getById(idPosition);
     }
 
+    public List<Position> getPositionByName(String namePosition) {
+        return positionRepository.findByNameContaining(namePosition);
+    }
+
     public Position addPosition(Position position) {
         if (positionRepository.existsById(position.getId_position())) {
             throw new IllegalArgumentException("Id " + position.getId_position() + " déja utilisé");
         } else {
-            return positionRepository.save(position);
+            if (GPSRule(position.getLongitude(), position.getLatitude())) {
+                return positionRepository.save(position);
+            } else {
+                throw new IllegalArgumentException("Longitude ou latitude mauvaise");
+            }
         }
     }
 
     public Position modifyPosition(Position position) {
         if (positionRepository.existsById(position.getId_position())) {
-            return positionRepository.save(position);
+            if (GPSRule(position.getLongitude(), position.getLatitude())) {
+                return positionRepository.save(position);
+            } else {
+                throw new IllegalArgumentException("Longitude ou latitude mauvaise");
+            }
         } else {
             throw new IllegalArgumentException("Id " + position.getId_position() + " n'existe pas");
         }
@@ -53,6 +65,14 @@ public class PositionService {
             }
         } else {
             return "La position possèdant l'id: " + id_position + " n'existe pas ou a deja était supprimer";
+        }
+    }
+
+    private boolean GPSRule (double longitude, double latitude){
+        if (longitude >= -180.00 && longitude <= 180.00 && latitude >= -90.00 && latitude <= 90.00 ) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

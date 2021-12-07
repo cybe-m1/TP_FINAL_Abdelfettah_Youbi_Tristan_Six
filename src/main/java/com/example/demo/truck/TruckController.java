@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Truck")
+@RequestMapping("/api/trucks")
 public class TruckController {
     private final TruckService truckService;
 
@@ -24,17 +24,27 @@ public class TruckController {
     }
 
     @PostMapping
-    public Truck addTRuck(@RequestBody Truck truck) {
+    public Truck addTruck(@RequestBody Truck truck) {
         return truckService.addTruck(truck);
     }
 
-    @PutMapping
-    public Truck affectTruck(@RequestBody Truck truck) {
-        return truckService.affectTruck(truck);
+    @PutMapping("/{idTruck}/position/{idPosition}")
+    public Truck putPositionToTruck(@PathVariable int idTruck, @PathVariable int idPosition) {
+        return truckService.putPositionToTruck(idTruck, idPosition);
     }
 
-    @DeleteMapping("/{id_truck}")
-    public String deletePosition(@PathVariable int id_truck) {
-        return truckService.suppTruck(id_truck);
+    @PutMapping("/{idTruck}/creneau/{idCreneau}")
+    public Truck putCreneauToTruck(@PathVariable int idTruck, @PathVariable int idCreneau) {
+        return truckService.putCreneauToTruck(idTruck, idCreneau);
+    }
+
+    @PutMapping
+    public Truck modifyTruck(@RequestBody Truck truck) {
+        return truckService.modifyTruck(truck);
+    }
+
+    @DeleteMapping("/{idtruck}")
+    public String deletePosition(@PathVariable int idtruck) {
+        return truckService.suppTruck(idtruck);
     }
 }

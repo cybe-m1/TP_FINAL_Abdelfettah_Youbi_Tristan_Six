@@ -22,4 +22,6 @@ public class Position {
     private int id_position;
     private String name;
     private String description;
+    private double longitude;
+    private double latitude;
 }

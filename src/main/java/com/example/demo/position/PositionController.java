@@ -3,9 +3,10 @@ package com.example.demo.position;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Position")
+@RequestMapping("/api/positions")
 public class PositionController {
     private final PositionService positionService;
 
@@ -16,6 +17,11 @@ public class PositionController {
 
     @GetMapping("/{idPosition}")
     public Position gePosition(@PathVariable int idPosition){ return positionService.getPosition(idPosition); }
+
+    @GetMapping("/search/{namePosition}")
+    public List<Position> getPositionByName(@PathVariable String namePosition){
+        return positionService.getPositionByName(namePosition);
+    }
 
     @PostMapping
     public Position addPosition(@RequestBody Position position) {

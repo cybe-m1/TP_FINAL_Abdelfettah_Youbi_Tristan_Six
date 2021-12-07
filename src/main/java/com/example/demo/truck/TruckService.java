@@ -23,38 +23,61 @@ public class TruckService {
     }
 
     public Truck addTruck(Truck newTruck) {
-        Object[] truckGoingToPosition = truckRepository.findAll().stream().filter(lanbdatruck -> lanbdatruck.getId_position() == newTruck.getId_position()).toArray();
-        if (truckGoingToPosition.length < 2) {
+        if (nbTruckGoingToPosition(newTruck) < 2) {
             if (truckRepository.existsById(newTruck.getId_truck())) {
                 throw new IllegalArgumentException("Id " + newTruck.getId_truck() + " déja utilisé");
             } else {
                 return truckRepository.save(newTruck);
             }
         } else {
-            throw new IllegalArgumentException("Id: " + newTruck.getId_truck() + " Non trouvée dans la bdd");
+            throw new IllegalArgumentException("Impossible de créé il y a trop de truck affecté a cette position");
         }
     }
 
-    public Truck affectTruck(Truck truck) {
+    public Truck modifyTruck(Truck truck) {
         if (truckRepository.existsById(truck.getId_truck())) {
-            Object[] truckGoingToPosition = truckRepository.findAll().stream().filter(lanbdatruck -> lanbdatruck.getId_position() == truck.getId_position()).toArray();
-            if (truckGoingToPosition.length < 2) {
+            if (nbTruckGoingToPosition(truck) < 2) {
                 return truckRepository.save(truck);
             } else {
-                throw new IllegalArgumentException("Trop de truck sont affécté à la même position");
+                throw new IllegalArgumentException("impossible de modifier il y a trop de trucks affecté à la même position");
             }
         } else {
             throw new IllegalArgumentException("Id: " + truck.getId_truck() + " Non trouvée dans la bdd");
         }
     }
 
-    public String suppTruck(int id_truck) {
-        if (truckRepository.existsById(id_truck)) {
-            Truck truckToDelete = truckRepository.getById(id_truck);
+    public Truck putPositionToTruck(int idTruck, int idPosition) {
+        if (truckRepository.existsById(idTruck)) {
+            Truck truckModifyPosition = truckRepository.getById(idTruck);
+            truckModifyPosition.setId_position(idPosition);
+            return truckRepository.save(truckModifyPosition);
+        } else {
+            throw new IllegalArgumentException("Id: " + idTruck + " Non trouvée dans la bdd");
+        }
+    }
+
+    public Truck putCreneauToTruck(int idTruck, int idCreneau) {
+        if (truckRepository.existsById(idTruck)) {
+            Truck truckModifyPosition = truckRepository.getById(idTruck);
+            truckModifyPosition.setId_creneau(idCreneau);
+            return truckRepository.save(truckModifyPosition);
+        } else {
+            throw new IllegalArgumentException("Id: " + idTruck + " Non trouvée dans la bdd");
+        }
+    }
+
+    public String suppTruck(int idtruck) {
+        if (truckRepository.existsById(idtruck)) {
+            Truck truckToDelete = truckRepository.getById(idtruck);
             truckRepository.delete(truckToDelete);
             return "Le truck a était supprimer";
         } else {
-            return"Id " + id_truck + " n'existe pas ou a deja était supprimer";
+            return"Id " + idtruck + " n'existe pas ou a deja était supprimer";
         }
+    }
+
+    private int nbTruckGoingToPosition(Truck truck){
+        Object[] truckGoingToPosition = truckRepository.findAll().stream().filter(lanbdatruck -> lanbdatruck.getId_position() == truck.getId_position()).toArray();
+        return truckGoingToPosition.length;
     }
 }
