@@ -23,7 +23,7 @@ public class TruckService {
     }
 
     public Truck addTruck(Truck newTruck) {
-        if (nbTruckGoingToPosition(newTruck) < 2) {
+        if (nbTruckGoingToPosition(newTruck.getId_position())) {
             if (truckRepository.existsById(newTruck.getId_truck())) {
                 throw new IllegalArgumentException("Id " + newTruck.getId_truck() + " déja utilisé");
             } else {
@@ -36,7 +36,7 @@ public class TruckService {
 
     public Truck modifyTruck(Truck truck) {
         if (truckRepository.existsById(truck.getId_truck())) {
-            if (nbTruckGoingToPosition(truck) < 2) {
+            if (nbTruckGoingToPosition(truck.getId_position())) {
                 return truckRepository.save(truck);
             } else {
                 throw new IllegalArgumentException("impossible de modifier il y a trop de trucks affecté à la même position");
@@ -48,9 +48,13 @@ public class TruckService {
 
     public Truck putPositionToTruck(int idTruck, int idPosition) {
         if (truckRepository.existsById(idTruck)) {
-            Truck truckModifyPosition = truckRepository.getById(idTruck);
-            truckModifyPosition.setId_position(idPosition);
-            return truckRepository.save(truckModifyPosition);
+            if (nbTruckGoingToPosition(idPosition)) {
+                Truck truckModifyPosition = truckRepository.getById(idTruck);
+                truckModifyPosition.setId_position(idPosition);
+                return truckRepository.save(truckModifyPosition);
+            } else {
+                throw new IllegalArgumentException("impossible de modifier il y a trop de trucks affecté à la même position");
+            }
         } else {
             throw new IllegalArgumentException("Id: " + idTruck + " Non trouvée dans la bdd");
         }
@@ -76,8 +80,12 @@ public class TruckService {
         }
     }
 
-    private int nbTruckGoingToPosition(Truck truck){
-        Object[] truckGoingToPosition = truckRepository.findAll().stream().filter(lanbdatruck -> lanbdatruck.getId_position() == truck.getId_position()).toArray();
-        return truckGoingToPosition.length;
+    private boolean nbTruckGoingToPosition(int idposition){
+        Object[] truckGoingToPosition = truckRepository.findAll().stream().filter(lanbdatruck -> lanbdatruck.getId_position() == idposition).toArray();
+        if (truckGoingToPosition.length < 2) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
