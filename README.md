@@ -3,7 +3,6 @@
 Cette API gére trois choses, les trucks et leurs affectation, 
 les positions ainsi que les creneaux.
 
---------------------------------------------------------------------
 ## LES DIFFERENTS INPUT DE L'API ET CHEMIN UTILISABLE
 ### LES TRUCKS
 
