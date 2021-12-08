@@ -96,6 +96,7 @@ Pour supprimer une position de la base :</br>
 Régle : Une position ne peut être supprimer si un truc y va</br>
 method : delete</br>
 url : localhost:8081/api/positions/{ideDeLaPosition}</br>
+
 --------------------------------------------------------------------
 ### LES CRENEAUX
 Pour récupérer une liste de créneaux dans la base :</br>
