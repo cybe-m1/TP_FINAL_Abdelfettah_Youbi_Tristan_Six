@@ -80,7 +80,7 @@ public class TruckService {
         }
     }
 
-    private boolean nbTruckGoingToPosition(int idposition){
+    private boolean nbTruckGoingToPosition(Integer idposition){
         Object[] truckGoingToPosition = truckRepository.findAll().stream().filter(lanbdatruck -> lanbdatruck.getId_position() == idposition).toArray();
         if (truckGoingToPosition.length < 2) {
             return true;

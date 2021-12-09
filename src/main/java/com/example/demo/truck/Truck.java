@@ -23,6 +23,6 @@ public class Truck {
     private int id_truck;
     private String name;
     private String description;
-    private int id_creneau;
-    private int id_position;
+    private Integer id_creneau;
+    private Integer id_position;
 }
