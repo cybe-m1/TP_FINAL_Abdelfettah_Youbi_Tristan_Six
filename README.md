@@ -74,8 +74,8 @@ url : localhost:8081/api/positions</br>
 Body:</br>
 {
 "id_position": 1,
-"name": "Nom du position",
-"description": "Description du position",
+"name": "Nom de la position",
+"description": "Description de la position",
 "longitude": une valeur comprise entre 180 et -180,
 "latitude": une valeur comprise entre 90 et -90
 }
@@ -86,14 +86,14 @@ url : localhost:8081/api/positions</br>
 Body:</br>
 //Pas besoin de mettre d'id il est générer automatiquement</br>
 {
-"name": "Nom du position",
-"description": "Description du position",
+"name": "Nom de la position",
+"description": "Description de la position",
 "longitude": une valeur comprise entre 180 et -180,
 "latitude": une valeur comprise entre 90 et -90
 }
 
 Pour supprimer une position de la base :</br>
-Régle : Une position ne peut être supprimer si un truc y va</br>
+Régle : Une position ne peut être supprimer si un truck y va</br>
 method : delete</br>
 url : localhost:8081/api/positions/{ideDeLaPosition}</br>
 
@@ -121,8 +121,8 @@ url : localhost:8081/api/creneaux</br>
 Body:</br>
 {
 "id_creneau": 1,
-"name": "NouveauCréneau",
-"description": "test rezqqsfdgsdcsfd",
+"name": "Nouveau Créneau",
+"description": "La description du créneau",
 "date": "date au format yyyy-MM-dd"
 }
 
@@ -138,7 +138,7 @@ Body:</br>
 }
 
 Pour supprimer un créneau de la base :</br>
-Régle : Une position ne peut être supprimer si un truc y va</br>
+Régle : Une position ne peut être supprimer si un truck y va</br>
 method : delete</br>
 url : localhost:8081/api/creneaux/{ideDeLaPosition}</br>
 
