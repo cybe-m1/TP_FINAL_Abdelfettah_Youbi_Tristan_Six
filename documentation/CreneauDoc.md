@@ -2,7 +2,7 @@
 
 Les Créneaux possèdent tous un id unique, et son lié aux Trucks par une clé étrangère.
 
-### schéma de l'objet Créneau
+### Schéma de l'objet Créneau
 
 ```json
 {

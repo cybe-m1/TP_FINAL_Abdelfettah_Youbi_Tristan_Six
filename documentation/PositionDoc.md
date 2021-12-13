@@ -2,7 +2,7 @@
 
 Les Positions possèdent tous un id unique, et son lié aux Trucks par une clé étrangère.
 
-### schéma de l'objet Position
+### Schéma de l'objet Position
 
 ```json
 {

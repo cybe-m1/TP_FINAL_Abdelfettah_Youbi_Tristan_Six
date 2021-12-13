@@ -2,7 +2,7 @@
 
 Les trucks possèdent tous un id unique, et son lié aux autres objets par des clés étrangères.
 
-### schéma de l'objet Truck
+### Schéma de l'objet Truck
 
 ```json
 {
@@ -51,7 +51,7 @@ Body:</br>
 Pour ajouter un truck dans la base.</br>
 Régle : Trois truck ne peuvent être au même endroit</br>
 method : **[POST]**</br>
-url : localhost:8081/api/trucks</br>
+url : `localhost:8081/api/trucks`</br>
 Body:</br>
 //Pas besoin de mettre d'id il est générer automatiquement</br>
 ```json
